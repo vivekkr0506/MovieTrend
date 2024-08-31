@@ -1,8 +1,10 @@
-import org.apache.commons.compress.harmony.pack200.PackingUtils.config
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlinAndroidKsp)
+    alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinKapt)
 }
 
 android {
@@ -23,22 +25,21 @@ android {
     }
 
     buildTypes {
+        debug{
+            isMinifyEnabled = false
+            isShrinkResources = false
+            isDebuggable = true
+            buildConfigField("String", "API_KEY", "\"33523e1cf179484089bfa8d6df00988f\"")
+        }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             isDebuggable = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
             buildConfigField("String", "TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZGI2NmU4YWEzZGVkZGQ4ZjVjY2E4YjlkOWRkYTYwMiIsIm5iZiI6MTcyNTA5MTYxMy43NDk2MjMsInN1YiI6IjY2ZDJjZDNhYjYzMDJkMWY1NDk2NWI4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8XwDavoVcRdw_nwlBqpX6M3u8TPYiIVW3CtlBdrZ-pQ\"")
             signingConfig = signingConfigs.getByName("debug")
-        }
-        debug {
-            isMinifyEnabled = false
-            isShrinkResources = false
-            isDebuggable = true
-            buildConfigField("String", "TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZGI2NmU4YWEzZGVkZGQ4ZjVjY2E4YjlkOWRkYTYwMiIsIm5iZiI6MTcyNTA5MTYxMy43NDk2MjMsInN1YiI6IjY2ZDJjZDNhYjYzMDJkMWY1NDk2NWI4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8XwDavoVcRdw_nwlBqpX6M3u8TPYiIVW3CtlBdrZ-pQ\"")
         }
     }
     compileOptions {
@@ -88,6 +89,16 @@ dependencies {
 
     //Coroutines
     implementation (libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.androidx.multidex)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.kotlin.stdlib)
+    ksp(libs.hilt.compiler)
+
+    implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

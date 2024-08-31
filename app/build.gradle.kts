@@ -29,7 +29,10 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
             isDebuggable = true
-            buildConfigField("String", "API_KEY", "\"33523e1cf179484089bfa8d6df00988f\"")
+            buildConfigField("String","API_KEY","\"ddb66e8aa3deddd8f5cca8b9d9dda602\"")
+            buildConfigField("String","BASE_URL","\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String","PLACE_HOLDER_IMAGE","\"https://image.tmdb.org/t/p/w500\"")
+            buildConfigField("String", "TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZGI2NmU4YWEzZGVkZGQ4ZjVjY2E4YjlkOWRkYTYwMiIsIm5iZiI6MTcyNTA5MTYxMy43NDk2MjMsInN1YiI6IjY2ZDJjZDNhYjYzMDJkMWY1NDk2NWI4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8XwDavoVcRdw_nwlBqpX6M3u8TPYiIVW3CtlBdrZ-pQ\"")
         }
         release {
             isMinifyEnabled = true
@@ -38,6 +41,9 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
+            buildConfigField("String","API_KEY","\"ddb66e8aa3deddd8f5cca8b9d9dda602\"")
+            buildConfigField("String","BASE_URL","\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String","PLACE_HOLDER_IMAGE","\"https://image.tmdb.org/t/p/w500\"")
             buildConfigField("String", "TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZGI2NmU4YWEzZGVkZGQ4ZjVjY2E4YjlkOWRkYTYwMiIsIm5iZiI6MTcyNTA5MTYxMy43NDk2MjMsInN1YiI6IjY2ZDJjZDNhYjYzMDJkMWY1NDk2NWI4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8XwDavoVcRdw_nwlBqpX6M3u8TPYiIVW3CtlBdrZ-pQ\"")
             signingConfig = signingConfigs.getByName("debug")
         }

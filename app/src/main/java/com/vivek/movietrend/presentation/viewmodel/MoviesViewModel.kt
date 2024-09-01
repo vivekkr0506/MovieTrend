@@ -1,4 +1,4 @@
-package com.vivek.movietrend.presentation
+package com.vivek.movietrend.presentation.viewmodel
 
 
 import androidx.lifecycle.ViewModel

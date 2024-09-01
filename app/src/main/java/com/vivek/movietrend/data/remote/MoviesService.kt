@@ -8,7 +8,7 @@ import retrofit2.http.Header
 import retrofit2.http.Path
 
 interface MoviesService {
-    @GET("movie/popular")
+    @GET("trending/movie/week")
     suspend fun getTrendingMovies(
         @Header("Authorization") token : String = "Bearer "+BuildConfig.TOKEN
     ): MovieResponse

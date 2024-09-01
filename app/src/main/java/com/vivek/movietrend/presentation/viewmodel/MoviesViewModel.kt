@@ -24,10 +24,6 @@ class MovieViewModel @Inject constructor(
     private val _movieDetails = MutableStateFlow<ApiResult<MovieDetail?>>(ApiResult.Loading)
     val movieDetails: StateFlow<ApiResult<MovieDetail?>> = _movieDetails.asStateFlow()
 
-    init {
-        fetchTrendingMovies()
-    }
-
     fun fetchTrendingMovies() {
         viewModelScope.launch {
             moviesRepository.getTrendingMovies().collect { result ->

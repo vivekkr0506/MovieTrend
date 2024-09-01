@@ -9,6 +9,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.vivek.movietrend.presentation.navigation.NavGraph
 import com.vivek.movietrend.presentation.screen.MovieDetailScreen
 import com.vivek.movietrend.presentation.screen.MovieListScreen
 import com.vivek.movietrend.ui.theme.MovieTrendTheme
@@ -23,18 +25,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MovieTrendTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    MovieDetailScreen()
+                    val navController = rememberNavController()
+                    NavGraph(navController = navController)
                 }
             }
         }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MovieTrendTheme {
-        MovieListScreen()
     }
 }

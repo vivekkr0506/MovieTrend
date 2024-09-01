@@ -15,13 +15,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.vivek.movietrend.network.ApiResult
 import com.vivek.movietrend.presentation.components.ErrorScreen
 import com.vivek.movietrend.presentation.components.MovieList
 import com.vivek.movietrend.presentation.viewmodel.MovieViewModel
 
 @Composable
-fun MovieListScreen(viewModel: MovieViewModel = hiltViewModel()) {
+fun MovieListScreen(navController: NavController, viewModel: MovieViewModel = hiltViewModel()) {
     val moviesState by viewModel.trendingMovies.collectAsState()
     LaunchedEffect(Unit) {
         viewModel.fetchTrendingMovies()
@@ -43,7 +44,7 @@ fun MovieListScreen(viewModel: MovieViewModel = hiltViewModel()) {
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(result.data ?: emptyList()) { movie ->
-                    MovieList(movie) {}
+                    MovieList(movie) {navController.navigate("movieDetail/${movie.id}") }
                 }
             }
         }

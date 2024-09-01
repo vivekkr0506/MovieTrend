@@ -15,7 +15,7 @@ interface MoviesService {
 
     @GET("movie/{id}")
     suspend fun getMovieDetails(
-        @Path("id") id: String,
+        @Path("id") id: Int,
         @Header("Authorization") token : String = "Bearer "+BuildConfig.TOKEN
     ): MovieDetailResponse
 }

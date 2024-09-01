@@ -21,7 +21,7 @@ class MoviesRemoteDataSourceImpl @Inject constructor(
         }
     }
 
-    override fun getMovieDetails(id: String): Flow<ApiResult<MovieDetail?>> = flow {
+    override fun getMovieDetails(id: Int): Flow<ApiResult<MovieDetail?>> = flow {
         try {
             val response = apiService.getMovieDetails(id = id)
             emit(ApiResult.Success(response.toDomain()))

@@ -15,7 +15,7 @@ class MoviesRepositoryImpl @Inject constructor(
         return moviesRemoteDataSource.getTrendingMovies()
     }
 
-    override fun getMovieDetail(id: String): Flow<ApiResult<MovieDetail?>> {
+    override fun getMovieDetail(id: Int): Flow<ApiResult<MovieDetail?>> {
         return moviesRemoteDataSource.getMovieDetails(id)
     }
 }

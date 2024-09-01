@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
     fun getTrendingMovies(): Flow<ApiResult<List<MovieDomain>?>>
-    fun getMovieDetail(id: String): Flow<ApiResult<MovieDetail?>>
+    fun getMovieDetail(id: Int): Flow<ApiResult<MovieDetail?>>
 }

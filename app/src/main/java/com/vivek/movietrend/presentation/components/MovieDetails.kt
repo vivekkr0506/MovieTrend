@@ -2,6 +2,7 @@ package com.vivek.movietrend.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.captionBarPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,11 +16,11 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
 @Composable
-fun MovieDetails(title: String?, posterPath: String?, overview: String?) {
+fun MovieDetails(title: String?, posterPath: String?, overview: String?, modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(top = 90.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
             .background(MaterialTheme.colorScheme.background)
     ) {
         AsyncImage(

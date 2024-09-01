@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -82,7 +83,7 @@ fun MovieListScreen(navController: NavController, viewModel: MovieViewModel = hi
                         contentPadding = PaddingValues(8.dp),
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        items(filteredMovies) { movie ->
+                        items(filteredMovies,  key = { movie -> movie.id }) { movie ->
                             MovieList(movie) { navController.navigate("movieDetail/${movie.id}") }
                         }
                     }

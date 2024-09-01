@@ -55,7 +55,7 @@ fun MovieDetailScreen(
                     TopAppBar(
                         title = { Text(text = "") },
                         navigationIcon = {
-                            IconButton(onClick = { navController.navigateUp() }) {
+                            IconButton(onClick = { navController.navigate("movieList") }) {
                                 Icon(
                                     imageVector = Icons.Filled.ArrowBack,
                                     contentDescription = "Back",
